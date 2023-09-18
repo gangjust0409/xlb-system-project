@@ -1,0 +1,43 @@
+{
+    "MovieCollection": {
+        "schema": {
+            "bsonType": "object",
+            "required": [],
+            "permission": {
+                "read": false,
+                "create": false,
+                "update": false,
+                "delete": false
+            },
+            "properties": {
+                "_id": {
+                    "description": "ID，系统自动生成"
+                },
+                "index": {
+                    "bsonType": "number",
+                    "title": "第几集"
+                },
+                "movieId": {
+                    "bsonType": "number",
+                    "title": "电视id"
+                },
+                "duration": {
+                    "bsonType": "number",
+                    "title": "时间戳（当前视频秒速）"
+                },
+                "posterURL": {
+                    "bsonType": "string",
+                    "title": "当前集数的影视路径"
+                },
+                "createId": {
+                    "bsonType": "number",
+                    "title": "创建id"
+                },
+                "createDate": {
+                    "bsonType": "date",
+                    "title": "创建日期"
+                }
+            }
+        }
+    }
+}

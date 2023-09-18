@@ -1,0 +1,61 @@
+{
+    "Weather": {
+        "data": [
+            {
+                "_id": {
+                    "$oid": "65068531466d416d30825416"
+                },
+                "weatherName": "多云",
+                "img": "https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/weather/天气-多云 (1).png",
+                "type": "日"
+            },
+            {
+                "_id": {
+                    "$oid": "65068564fe975fba5a5e6546"
+                },
+                "weatherName": "阴天",
+                "type": "日",
+                "img": "https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/weather/天气-阴天.png"
+            },
+            {
+                "_id": {
+                    "$oid": "65068596a09a9bd68b9eb206"
+                },
+                "weatherName": "晴",
+                "type": "日",
+                "img": "https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/weather/天气_晴天 (1).png"
+            },
+            {
+                "_id": {
+                    "$oid": "650685c255b337825752aa16"
+                },
+                "weatherName": "大暴雨",
+                "type": "日",
+                "img": "https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/weather/日间天气-大暴雨.png"
+            },
+            {
+                "_id": {
+                    "$oid": "650685e2a09a9bd68b9ebbfa"
+                },
+                "weatherName": "阵雨",
+                "type": "日",
+                "img": "https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/weather/日间天气-阵雨 (2).png"
+            }
+        ],
+        "schema": {
+            "bsonType": "object",
+            "required": [],
+            "permission": {
+                "read": false,
+                "create": false,
+                "update": false,
+                "delete": false
+            },
+            "properties": {
+                "_id": {
+                    "description": "ID，系统自动生成"
+                }
+            }
+        }
+    }
+}

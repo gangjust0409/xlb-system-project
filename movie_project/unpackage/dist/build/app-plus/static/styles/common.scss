@@ -1,0 +1,54 @@
+.xlb-page{
+	background-color: #eee;
+	color:#000;
+	.content{
+		
+	}
+}
+// 卡片
+.card{
+	padding: 0 0  20rpx 0;
+	.card-header{
+		
+		&.header-title{
+			background-color: #fff;
+			padding: 20rpx 0 10rpx 30rpx;
+		}
+	}
+	.card-body{
+		background-color: #fff;
+		padding: 20rpx;
+		border-radius: 5px;
+	}
+}
+ /* 上传文件 样式 */
+ 
+ .uload-btn {
+ 	width: 200rpx;
+ 	height: 200rpx;
+ 	border: 1px dashed #666;
+ 	border-radius: 5px;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	margin: 15rpx 0 0 15rpx;
+ }
+ /* 图标按钮*/
+ .icon-btn{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin-right: 10rpx;
+	text{
+		font-size: 28rpx;
+	}
+	&.heand-down{
+		padding-top: 5rpx;
+		.uni-icons{
+			position: relative;
+			top: 10rpx;
+		}
+	}
+ }
+ 

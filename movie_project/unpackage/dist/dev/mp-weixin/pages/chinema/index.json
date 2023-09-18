@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "刚柴狐 - 放映厅",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "xlb-tabbar": "/components/xlb-tabbar/xlb-tabbar"
+  }
+}

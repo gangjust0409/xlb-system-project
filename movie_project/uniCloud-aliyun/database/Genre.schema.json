@@ -1,0 +1,73 @@
+{
+    "Genre": {
+        "data": [
+            {
+                "_id": {
+                    "$oid": "64f34a0621821b2af54bbfe8"
+                },
+                "genreName": "喜剧"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34a59337a9f4db71a6735"
+                },
+                "genreName": "动漫"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34a64a09a9bd68b3549a9"
+                },
+                "genreName": "科幻"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34a6f21821b2af54bcbe8"
+                },
+                "genreName": "恐怖"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34a85e0ec19bea14600ad"
+                },
+                "genreName": "奇幻"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34b007ad52ddc6415ed56"
+                },
+                "genreName": "冒险"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34b0aa09a9bd68b355ee5"
+                },
+                "genreName": "古装"
+            },
+            {
+                "_id": {
+                    "$oid": "64f34b146e5d2d8f644396fd"
+                },
+                "genreName": "爱情"
+            }
+        ],
+        "schema": {
+            "bsonType": "object",
+            "required": [],
+            "permission": {
+                "read": false,
+                "create": false,
+                "update": false,
+                "delete": false
+            },
+            "properties": {
+                "_id": {
+                    "description": "ID，系统自动生成"
+                },
+                "genreName": {
+                    "bsonType": "string",
+                    "title": "分类名称"
+                }
+            }
+        }
+    }
+}

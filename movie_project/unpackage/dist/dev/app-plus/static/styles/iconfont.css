@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4217036 */
+  src: url('~@/static/fonts/iconfont.woff2?t=1693570377925') format('woff2'),
+       url('~@/static/fonts/iconfont.woff?t=1693570377925') format('woff'),
+       url('~@/static/fonts/iconfont.ttf?t=1693570377925') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wodelishijilu:before {
+  content: "\e63a";
+}
+
+.icon-anniucai:before {
+  content: "\eb21";
+}
+
+.icon-anniu-zan:before {
+  content: "\eb22";
+}
+
+.icon-anniu-zan_o:before {
+  content: "\eba8";
+}
+
+.icon-anniucai_o:before {
+  content: "\eba9";
+}
+
+.icon-anniu_zuo_xuanting:before {
+  content: "\e74e";
+}
+
+.icon-anniu_you_moren:before {
+  content: "\e754";
+}
+
+.icon-anniu-guanbi:before {
+  content: "\e8f7";
+}
+
+.icon-anniu-tianjia:before {
+  content: "\e784";
+}
+
+.icon-anniubangzhu:before {
+  content: "\e693";
+}
+
+.icon-anniu-shoucang:before {
+  content: "\e7a0";
+}
+
+.icon-wodelishi:before {
+  content: "\e61b";
+}
+
+.icon-anniufuzhi:before {
+  content: "\e684";
+}
+
+.icon-bofanganniuzanting4:before {
+  content: "\e62d";
+}
+
+.icon-anniu-zan1:before {
+  content: "\e633";
+}
+
+.icon-anniu-xiayibu:before {
+  content: "\e66b";
+}
+
+.icon-shanchu:before {
+  content: "\e600";
+}
+
+.icon-anniu-zhongzhi:before {
+  content: "\e663";
+}
+
+.icon-anniu-suofang-fangda:before {
+  content: "\e7ee";
+}
+
+.icon-bofanganniudefuben:before {
+  content: "\e648";
+}
+
+.icon-anniu-shuaxin:before {
+  content: "\e675";
+}
+
+.icon-anniushang:before {
+  content: "\e844";
+}
+
+.icon-_anniu-zhongzhishaixuan:before {
+  content: "\e68e";
+}
+
+.icon-anniuxiazai:before {
+  content: "\e6b4";
+}
+
+.icon-anniutubiao:before {
+  content: "\e6ba";
+}
+
+.icon-gaodudingzhihua:before {
+  content: "\e897";
+}
+
+.icon-duanshipin:before {
+  content: "\e68c";
+}
+
+.icon-nengyuantoutiaoicon-:before {
+  content: "\e66c";
+}
+
+.icon-slapstick:before {
+  content: "\e933";
+}
+
+.icon-zhongcaoduanshipin-yixuan:before {
+  content: "\e7fe";
+}
+
+.icon-search:before {
+  content: "\e61f";
+}
+
+.icon-message:before {
+  content: "\e624";
+}
+
+.icon-message1:before {
+  content: "\e620";
+}
+
+.icon-qiyexiu:before {
+  content: "\e66f";
+}
+
+.icon-__live_sessionStatistics:before {
+  content: "\e6a4";
+}
+
+.icon-tianqi:before {
+  content: "\e7b2";
+}
+
+.icon-tianqi-leiyu:before {
+  content: "\e613";
+}
+
+.icon-tianqi-dayu:before {
+  content: "\e614";
+}
+
+.icon-tianqi-shuang:before {
+  content: "\e615";
+}
+
+.icon-tianqi-daxue:before {
+  content: "\e616";
+}
+
+.icon-tianqi-wumai:before {
+  content: "\e617";
+}
+
+.icon-tianqi-yintian:before {
+  content: "\e61a";
+}
+
+.icon-tianqitubiao_wanqing:before {
+  content: "\e61e";
+}
+
+.icon-leizhenyu:before {
+  content: "\e60c";
+}
+
+.icon-yujiaxue:before {
+  content: "\e612";
+}
+
+.icon-rijiantianqi-dabaoyu:before {
+  content: "\e653";
+}
+
+.icon-rijiantianqi-dongyu:before {
+  content: "\e654";
+}
+
+.icon-rijiantianqi-xiaoyu:before {
+  content: "\e655";
+}
+
+.icon-rijiantianqi-baoyu:before {
+  content: "\e656";
+}
+
+.icon-wanjiantianqi-zhenyu:before {
+  content: "\e657";
+}
+
+.icon-rijiantianqi-xiaoxue:before {
+  content: "\e658";
+}
+
+.icon-rijiantianqi-baoxue:before {
+  content: "\e659";
+}
+
+.icon-rijiantianqi-zhenxue:before {
+  content: "\e65a";
+}
+
+.icon-wanjiantianqi-zhenxue:before {
+  content: "\e65b";
+}
+
+.icon-rijiantianqi-zhenyu:before {
+  content: "\e65c";
+}
+
+.icon-rijiantianqi-zhongyu:before {
+  content: "\e65d";
+}
+
+.icon-rijiantianqi-zhongxue:before {
+  content: "\e65e";
+}
+
+.icon-wanjiantianqi-duoyun:before {
+  content: "\e65f";
+}
+
+.icon-tianqi-duoyun:before {
+  content: "\e69d";
+}
+
+.icon-tianqi-yujiaxue:before {
+  content: "\e69f";
+}
+
+.icon-tianqi_qingtian:before {
+  content: "\e98b";
+}
+
+.icon-home_light:before {
+  content: "\e7d4";
+}
+
+.icon-user:before {
+  content: "\e682";
+}
+
+.icon-user-filling:before {
+  content: "\e68b";
+}
+
+.icon-home-filling:before {
+  content: "\e68d";
+}
+

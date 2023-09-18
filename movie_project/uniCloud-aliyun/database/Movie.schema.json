@@ -1,0 +1,52 @@
+{
+    "Movie": {
+        "data": [],
+        "schema": {
+            "bsonType": "object",
+            "required": [],
+            "permission": {
+                "read": false,
+                "create": false,
+                "update": false,
+                "delete": false
+            },
+            "properties": {
+                "_id": {
+                    "description": "ID，系统自动生成"
+                },
+                "movieName": {
+                    "bsonType": "string",
+                    "title": "电影名称"
+                },
+                "director": {
+                    "bsonType": "string",
+                    "title": "导演"
+                },
+                "genreIds": {
+                    "bsonType": "array",
+                    "title": "分类id，数组格式"
+                },
+                "releaseDate": {
+                    "bsonType": "date",
+                    "title": "上映日期"
+                },
+                "rating": {
+                    "bsonType": "number",
+                    "title": "评分"
+                },
+                "pic": {
+                    "bsonType": "string",
+                    "title": "影视封面"
+                },
+                "uploadId": {
+                    "bsonType": "string",
+                    "title": "上传者"
+                },
+                "uploadDate": {
+                    "bsonType": "string",
+                    "title": "上传日期"
+                }
+            }
+        }
+    }
+}

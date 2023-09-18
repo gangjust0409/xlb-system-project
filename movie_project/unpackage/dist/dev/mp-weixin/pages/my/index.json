@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-checkbox-group": "/uni_modules/uview-ui/components/u-checkbox-group/u-checkbox-group",
+    "u-checkbox": "/uni_modules/uview-ui/components/u-checkbox/u-checkbox",
+    "u-link": "/uni_modules/uview-ui/components/u-link/u-link",
+    "xlb-tabbar": "/components/xlb-tabbar/xlb-tabbar"
+  }
+}

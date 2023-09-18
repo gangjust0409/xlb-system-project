@@ -1,0 +1,1 @@
+<view class="xlb-page"><xlb-tabbar vue-id="2e720fdd-1" value="{{1}}" bind:__l="__l"></xlb-tabbar></view>

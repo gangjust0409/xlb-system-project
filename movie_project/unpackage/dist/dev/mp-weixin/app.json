@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/weclome/weclome",
+    "pages/index/index",
+    "pages/my/index",
+    "pages/chinema/index"
+  ],
+  "subPackages": [
+    {
+      "root": "subpages",
+      "pages": [
+        "uploadMovie/uploadMovie",
+        "detail/detail",
+        "play/play",
+        "uploadMovieCollection/uploadMovieCollection"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "欢迎使用",
+    "navigationBarBackgroundColor": "#3c9cff",
+    "backgroundColor": "#3c9cff"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前使用的地址"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdateBackground",
+    "chooseAddress"
+  ],
+  "usingComponents": {}
+}

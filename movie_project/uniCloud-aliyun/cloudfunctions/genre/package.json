@@ -1,0 +1,7 @@
+{
+  "name": "genre",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
