@@ -10,6 +10,12 @@
 
 // 下面示例查询uni-id-users表的所有数据
 // db.collection('uni-id-users').get();
-db.collection("MovieCollection").where({
-		   "movieId": "64f42899a7c432baa009e62f"
-	   }).orderBy("index", "asc").get()
+// db.collection("MovieCollection").where({
+// 		   "movieId": "64f42899a7c432baa009e62f"
+// 	   }).orderBy("index", "asc").get()
+db.collection("Movie").where({
+	_id: '64f42899a7c432baa009e62f'
+}).get()
+	   
+	   
+

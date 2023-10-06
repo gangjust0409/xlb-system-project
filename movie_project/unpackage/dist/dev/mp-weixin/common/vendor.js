@@ -777,7 +777,7 @@ function populateParameters(result) {
   var parameters = {
     appId: "__UNI__2007292",
     appName: "钢柴狐影视",
-    appVersion: "1.0.0",
+    appVersion: "1.0.1",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
     uniCompileVersion: "3.8.12",
@@ -876,7 +876,7 @@ var getAppBaseInfo = {
     result = sortObject(Object.assign(result, {
       appId: "__UNI__2007292",
       appName: "钢柴狐影视",
-      appVersion: "1.0.0",
+      appVersion: "1.0.1",
       appVersionCode: "100",
       appLanguage: getAppLanguage(hostLanguage),
       hostVersion: version,
@@ -9968,7 +9968,7 @@ var b = "development" === "development",
         "127.0.0.1",
         "192.168.189.1",
         "192.168.254.1",
-        "192.168.2.28"
+        "192.168.43.9"
     ],
     "debugPort": 9000,
     "initialLaunchType": "local",
@@ -26888,8 +26888,134 @@ exports.default = _default;
 /* 186 */,
 /* 187 */,
 /* 188 */,
-/* 189 */,
-/* 190 */,
+/* 189 */
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/readOnlyError.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _readOnlyError(name) {
+  throw new TypeError("\"" + name + "\" is read-only");
+}
+module.exports = _readOnlyError, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+/* 190 */
+/*!*******************************************************************!*\
+  !*** E:/xlb-system-project/movie_project/utils/univerifyStyle.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  "fullScreen": false,
+  // 是否全屏显示，默认值： false
+  "backgroundColor": "#ffffff",
+  // 授权页面背景颜色，默认值：#ffffff
+  "backgroundImage": "",
+  // 全屏显示的背景图片，默认值："" （仅支持本地图片，只有全屏显示时支持）  
+  "icon": {
+    "path": "static/xxx.png",
+    // 自定义显示在授权框中的logo，仅支持本地图片 默认显示App logo
+    "width": "60px",
+    //图标宽度 默认值：60px
+    "height": "60px" //图标高度 默认值：60px
+  },
+
+  "closeIcon": {
+    "path": "static/xxx.png" // 自定义关闭按钮，仅支持本地图片。 HBuilderX3.3.7+版本支持
+  },
+
+  "phoneNum": {
+    "color": "#202020" // 手机号文字颜色 默认值：#202020  
+  },
+
+  "slogan": {
+    "color": "#BBBBBB" //  slogan 字体颜色 默认值：#BBBBBB  
+  },
+
+  "authButton": {
+    "normalColor": "#3479f5",
+    // 授权按钮正常状态背景颜色 默认值：#3479f5  
+    "highlightColor": "#2861c5",
+    // 授权按钮按下状态背景颜色 默认值：#2861c5（仅ios支持）  
+    "disabledColor": "#73aaf5",
+    // 授权按钮不可点击时背景颜色 默认值：#73aaf5（仅ios支持）  
+    "textColor": "#ffffff",
+    // 授权按钮文字颜色 默认值：#ffffff  
+    "title": "本机号码一键登录",
+    // 授权按钮文案 默认值：“本机号码一键登录”  
+    "borderRadius": "24px" // 授权按钮圆角 默认值："24px" （按钮高度的一半）
+  },
+
+  "otherLoginButton": {
+    "visible": true,
+    // 是否显示其他登录按钮，默认值：true  
+    "normalColor": "",
+    // 其他登录按钮正常状态背景颜色 默认值：透明 
+    "highlightColor": "",
+    // 其他登录按钮按下状态背景颜色 默认值：透明 
+    "textColor": "#656565",
+    // 其他登录按钮文字颜色 默认值：#656565  
+    "title": "其他登录方式",
+    // 其他登录方式按钮文字 默认值：“其他登录方式”  
+    "borderColor": "",
+    //边框颜色 默认值：透明（仅iOS支持）  
+    "borderRadius": "0px" // 其他登录按钮圆角 默认值："24px" （按钮高度的一半）
+  },
+
+  "privacyTerms": {
+    "defaultCheckBoxState": true,
+    // 条款勾选框初始状态 默认值： true
+    "isCenterHint": false,
+    //未勾选服务条款时点击登录按钮的提示是否居中显示 默认值: false (3.7.13+ 版本支持)
+    "uncheckedImage": "",
+    // 可选 条款勾选框未选中状态图片（仅支持本地图片 建议尺寸 24x24px）(3.2.0+ 版本支持)   
+    "checkedImage": "",
+    // 可选 条款勾选框选中状态图片（仅支持本地图片 建议尺寸24x24px）(3.2.0+ 版本支持)   
+    "checkBoxSize": 12,
+    // 可选 条款勾选框大小
+    "textColor": "#BBBBBB",
+    // 文字颜色 默认值：#BBBBBB  
+    "termsColor": "#5496E3",
+    //  协议文字颜色 默认值： #5496E3  
+    "prefix": "我已阅读并同意",
+    // 条款前的文案 默认值：“我已阅读并同意”  
+    "suffix": "并使用本机号码登录",
+    // 条款后的文案 默认值：“并使用本机号码登录”  
+    "privacyItems": [
+    // 自定义协议条款，最大支持2个，需要同时设置url和title. 否则不生效  
+    {
+      "url": "https://",
+      // 点击跳转的协议详情页面  
+      "title": "用户服务协议" // 协议名称  
+    }]
+  },
+
+  "buttons": {
+    // 自定义页面下方按钮仅全屏模式生效（3.1.14+ 版本支持）
+    "iconWidth": "45px",
+    // 图标宽度（高度等比例缩放） 默认值：45px
+    "list": [{
+      "provider": "apple",
+      "iconPath": "/static/apple.png" // 图标路径仅支持本地图片
+    }, {
+      "provider": "weixin",
+      "iconPath": "/static/wechat.png" // 图标路径仅支持本地图片
+    }]
+  }
+};
+exports.default = _default;
+
+/***/ }),
 /* 191 */,
 /* 192 */,
 /* 193 */,
@@ -26902,7 +27028,9 @@ exports.default = _default;
 /* 200 */,
 /* 201 */,
 /* 202 */,
-/* 203 */
+/* 203 */,
+/* 204 */,
+/* 205 */
 /*!*********************************************************!*\
   !*** E:/xlb-system-project/movie_project/utils/date.js ***!
   \*********************************************************/
@@ -26953,7 +27081,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 204 */
+/* 206 */
 /*!*********************************************************!*\
   !*** E:/xlb-system-project/movie_project/utils/UUID.js ***!
   \*********************************************************/
@@ -26968,7 +27096,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _date2 = _interopRequireDefault(__webpack_require__(/*! @/utils/date.js */ 203));
+var _date2 = _interopRequireDefault(__webpack_require__(/*! @/utils/date.js */ 205));
 var uids = [];
 var _default = {
   /**
@@ -26997,7 +27125,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 205 */
+/* 207 */
 /*!***************************************************************!*\
   !*** E:/xlb-system-project/movie_project/mixins/equipment.js ***!
   \***************************************************************/
@@ -27032,8 +27160,6 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 206 */,
-/* 207 */,
 /* 208 */,
 /* 209 */,
 /* 210 */,
@@ -27063,7 +27189,9 @@ exports.default = _default;
 /* 234 */,
 /* 235 */,
 /* 236 */,
-/* 237 */
+/* 237 */,
+/* 238 */,
+/* 239 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-sticky/props.js ***!
   \*********************************************************************************************/
@@ -27115,14 +27243,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 238 */,
-/* 239 */,
 /* 240 */,
 /* 241 */,
 /* 242 */,
 /* 243 */,
 /* 244 */,
-/* 245 */
+/* 245 */,
+/* 246 */,
+/* 247 */
 /*!***********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***********************************************************************************************/
@@ -28143,14 +28271,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 246 */,
-/* 247 */,
 /* 248 */,
 /* 249 */,
 /* 250 */,
 /* 251 */,
 /* 252 */,
-/* 253 */
+/* 253 */,
+/* 254 */,
+/* 255 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-swiper/props.js ***!
   \*********************************************************************************************/
@@ -28293,14 +28421,109 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 254 */,
-/* 255 */,
 /* 256 */,
 /* 257 */,
 /* 258 */,
 /* 259 */,
 /* 260 */,
-/* 261 */
+/* 261 */,
+/* 262 */,
+/* 263 */
+/*!*************************************************************************************************!*\
+  !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-notice-bar/props.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 显示的内容，数组
+    text: {
+      type: [Array, String],
+      default: uni.$u.props.noticeBar.text
+    },
+    // 通告滚动模式，row-横向滚动，column-竖向滚动
+    direction: {
+      type: String,
+      default: uni.$u.props.noticeBar.direction
+    },
+    // direction = row时，是否使用步进形式滚动
+    step: {
+      type: Boolean,
+      default: uni.$u.props.noticeBar.step
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: uni.$u.props.noticeBar.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: uni.$u.props.noticeBar.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: uni.$u.props.noticeBar.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: uni.$u.props.noticeBar.bgColor
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: uni.$u.props.noticeBar.speed
+    },
+    // 字体大小
+    fontSize: {
+      type: [String, Number],
+      default: uni.$u.props.noticeBar.fontSize
+    },
+    // 滚动一个周期的时间长，单位ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.noticeBar.duration
+    },
+    // 是否禁止用手滑动切换
+    // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+    disableTouch: {
+      type: Boolean,
+      default: uni.$u.props.noticeBar.disableTouch
+    },
+    // 跳转的页面路径
+    url: {
+      type: String,
+      default: uni.$u.props.noticeBar.url
+    },
+    // 页面跳转的类型
+    linkType: {
+      type: String,
+      default: uni.$u.props.noticeBar.linkType
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */
 /*!*******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-icon/icons.js ***!
   \*******************************************************************************************/
@@ -28531,7 +28754,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 262 */
+/* 272 */
 /*!*******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-icon/props.js ***!
   \*******************************************************************************************/
@@ -28638,14 +28861,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */
 /*!******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-tag/props.js ***!
   \******************************************************************************************/
@@ -28747,14 +28970,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */
 /*!***********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-loadmore/props.js ***!
   \***********************************************************************************************/
@@ -28866,19 +29089,19 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
 /* 289 */,
 /* 290 */,
-/* 291 */
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */
 /*!*************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/libs/mixin/button.js ***!
   \*************************************************************************************/
@@ -28908,7 +29131,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 292 */
+/* 302 */
 /*!***************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/libs/mixin/openType.js ***!
   \***************************************************************************************/
@@ -28950,7 +29173,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 293 */
+/* 303 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-button/props.js ***!
   \*********************************************************************************************/
@@ -29129,14 +29352,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */
 /*!*****************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-checkbox-group/props.js ***!
   \*****************************************************************************************************/
@@ -29233,14 +29456,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */
 /*!***********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-checkbox/props.js ***!
   \***********************************************************************************************/
@@ -29327,14 +29550,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */
 /*!*******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-link/props.js ***!
   \*******************************************************************************************/
@@ -29391,14 +29614,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */
 /*!*******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-form/props.js ***!
   \*******************************************************************************************/
@@ -29461,12 +29684,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */
 /*!************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-form-item/props.js ***!
   \************************************************************************************************/
@@ -29532,14 +29755,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */
 /*!********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-input/props.js ***!
   \********************************************************************************************/
@@ -29744,12 +29967,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */
 /*!********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-popup/props.js ***!
   \********************************************************************************************/
@@ -29846,14 +30069,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */
 /*!******************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-datetime-picker/props.js ***!
   \******************************************************************************************************/
@@ -29987,7 +30210,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 354 */
+/* 364 */
 /*!***********************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/libs/util/dayjs.js ***!
   \***********************************************************************************/
@@ -30299,14 +30522,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
 });
 
 /***/ }),
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */
 /*!***********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-textarea/props.js ***!
   \***********************************************************************************************/
@@ -30443,12 +30666,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-upload/utils.js ***!
   \*********************************************************************************************/
@@ -30592,7 +30815,7 @@ function chooseFile(_ref) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 369 */
+/* 379 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-upload/mixin.js ***!
   \*********************************************************************************************/
@@ -30619,7 +30842,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 370 */
+/* 380 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-upload/props.js ***!
   \*********************************************************************************************/
@@ -30761,21 +30984,21 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
 /* 381 */,
 /* 382 */,
 /* 383 */,
 /* 384 */,
-/* 385 */
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */
 /*!********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-modal/props.js ***!
   \********************************************************************************************/
@@ -30877,14 +31100,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */
 /*!************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-read-more/props.js ***!
   \************************************************************************************************/
@@ -30959,14 +31182,14 @@ exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */
 /*!********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-parse/props.js ***!
   \********************************************************************************************/
@@ -31026,7 +31249,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 402 */
+/* 412 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-parse/parser.js ***!
   \*********************************************************************************************/
@@ -31957,14 +32180,14 @@ module.exports = parser;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */
 /*!****************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-line-progress/props.js ***!
   \****************************************************************************************************/
@@ -32010,14 +32233,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */
 /*!***************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
   \***************************************************************************************************/
@@ -32094,14 +32317,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */
 /*!*******************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-swiper-indicator/props.js ***!
   \*******************************************************************************************************/
@@ -32148,14 +32371,158 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */
+/*!****************************************************************************************************!*\
+  !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-column-notice/props.js ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 显示的内容，字符串
+    text: {
+      type: [Array],
+      default: uni.$u.props.columnNotice.text
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: uni.$u.props.columnNotice.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: uni.$u.props.columnNotice.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: uni.$u.props.columnNotice.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: uni.$u.props.columnNotice.bgColor
+    },
+    // 字体大小，单位px
+    fontSize: {
+      type: [String, Number],
+      default: uni.$u.props.columnNotice.fontSize
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: uni.$u.props.columnNotice.speed
+    },
+    // direction = row时，是否使用步进形式滚动
+    step: {
+      type: Boolean,
+      default: uni.$u.props.columnNotice.step
+    },
+    // 滚动一个周期的时间长，单位ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.columnNotice.duration
+    },
+    // 是否禁止用手滑动切换
+    // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+    disableTouch: {
+      type: Boolean,
+      default: uni.$u.props.columnNotice.disableTouch
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */
+/*!*************************************************************************************************!*\
+  !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-row-notice/props.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 显示的内容，字符串
+    text: {
+      type: String,
+      default: uni.$u.props.rowNotice.text
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: uni.$u.props.rowNotice.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: uni.$u.props.rowNotice.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: uni.$u.props.rowNotice.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: uni.$u.props.rowNotice.bgColor
+    },
+    // 字体大小，单位px
+    fontSize: {
+      type: [String, Number],
+      default: uni.$u.props.rowNotice.fontSize
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(rpx)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: uni.$u.props.rowNotice.speed
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */
 /*!*************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-transition/props.js ***!
   \*************************************************************************************************/
@@ -32197,7 +32564,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 435 */
+/* 461 */
 /*!******************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-transition/transition.js ***!
   \******************************************************************************************************/
@@ -32214,7 +32581,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 436));
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 462));
 // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {
   return new Promise(function (resolve) {
@@ -32306,7 +32673,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 436 */
+/* 462 */
 /*!********************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \********************************************************************************************************/
@@ -32499,14 +32866,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */
 /*!*******************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-line/props.js ***!
   \*******************************************************************************************/
@@ -32557,14 +32924,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-tabbar/props.js ***!
   \*********************************************************************************************/
@@ -32626,14 +32993,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */
 /*!**************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-tabbar-item/props.js ***!
   \**************************************************************************************************/
@@ -32685,14 +33052,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 461 */,
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/libs/util/async-validator.js ***!
   \*********************************************************************************************/
@@ -33873,10 +34240,10 @@ Schema.warning = warning;
 Schema.messages = messages;
 var _default = Schema; // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 469)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 495)))
 
 /***/ }),
-/* 469 */
+/* 495 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -33907,7 +34274,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 470);
+        if (!path) path = __webpack_require__(/*! path */ 496);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -33920,7 +34287,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 470 */
+/* 496 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -34230,22 +34597,22 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 469)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 495)))
 
 /***/ }),
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */
 /*!**********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-overlay/props.js ***!
   \**********************************************************************************************/
@@ -34287,14 +34654,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */
 /*!*************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-status-bar/props.js ***!
   \*************************************************************************************************/
@@ -34320,14 +34687,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */
 /*!**************************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \**************************************************************************************************/
@@ -34347,14 +34714,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */
 /*!*********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-picker/props.js ***!
   \*********************************************************************************************/
@@ -34451,30 +34818,30 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */,
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */
 /*!********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-badge/props.js ***!
   \********************************************************************************************/
@@ -34564,14 +34931,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 532 */,
-/* 533 */,
-/* 534 */,
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */
 /*!**********************************************************************************************!*\
   !*** E:/xlb-system-project/movie_project/uni_modules/uview-ui/components/u-toolbar/props.js ***!
   \**********************************************************************************************/

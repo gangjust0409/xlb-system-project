@@ -1,0 +1,66 @@
+body {
+    font-size: 14px;
+    margin: 0;
+    --info-text-color: #606266;
+}
+
+.app-box {
+    padding: 0 .625rem;
+}
+
+//更改默认样式
+.el-main {
+    // padding: .3125rem 0 0 0 !important;
+    background-color: #fcfcfc;
+}
+
+.el-header {
+    box-shadow: 9px 1px 10px rgba($color: #000, $alpha: .5);
+    z-index: 2;
+
+    .xlb-header {
+        margin: .9375rem 0;
+    }
+}
+
+.el-aside::-webkit-scrollbar {
+    display: none;
+}
+
+.el-container {
+    height: 100vh;
+}
+
+.el-menu {
+    height: 89%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 2px solid var(--el-color-primary) !important;
+    border-top: 2px solid var(--el-color-primary);
+}
+
+.icon {
+    color: var(--el-color-primary);
+    cursor: pointer;
+}
+
+// 当屏幕小于1080以下时，自动缩菜单
+@media screen and (max-width: 1079px) {
+    .app-layout {
+        .aside-menu {
+            width: 4rem !important;
+
+            h2 {
+                @extend .aside-menu;
+
+                .logo {
+                    display: block;
+                }
+
+                .fade-system-title {
+                    display: none;
+                }
+            }
+        }
+    }
+}

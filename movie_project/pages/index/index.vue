@@ -13,24 +13,26 @@
 						<text>龙门客栈</text>
 					</view>
 					<view class="message">
-						<uni-icons custom-prefix="iconfont"  type="icon-message" c
-							color="#fff" size="30"></uni-icons>
+						<uni-icons custom-prefix="iconfont" type="icon-message" c color="#fff" size="30"></uni-icons>
 					</view>
 				</view>
 			</u-sticky>
 			<!-- 天气预报等信息 -->
 			<view class="weather-access-box card">
 				<view class="card-body">
-					<view class="weather">
+					<view class="weather" v-if="userAddressWeatherInfo.city && userAddressWeatherInfo.weather">
 						<image :src="userAddressWeatherInfo.weatherPic"></image>
 						<view class="city-weather">
-							<view class="city">{{userAddressWeatherInfo.province}} - {{userAddressWeatherInfo.city}}</view>
+							<view class="city">{{userAddressWeatherInfo.city}} - {{userAddressWeatherInfo.district}}
+							</view>
 							<view class="info">
 								<text>{{userAddressWeatherInfo.weather}} </text>
-								<text>{{userAddressWeatherInfo.temperature_float}}°C {{userAddressWeatherInfo.winddirection}}风{{userAddressWeatherInfo.windpower}}级 </text>
+								<text>{{userAddressWeatherInfo.temperature_float}}°C {{userAddressWeatherInfo.winddirection}} {{userAddressWeatherInfo.windpower}}
+								</text>
 							</view>
 						</view>
 					</view>
+					<view class="weather-no" v-else @click="getWeather">请重新获取天气信息</view>
 					<view class="access">
 						<view>访问量： <text>1025</text></view>
 						<view>影视总量：<text>205</text></view>
@@ -42,6 +44,9 @@
 				<view class="card-body">
 					<u-swiper :list="swiperList" :height="150"></u-swiper>
 				</view>
+			</view>
+			<view class="xlb-notify">
+				<u-notice-bar :text="notify"></u-notice-bar>
 			</view>
 			<!-- 首页4个按钮 -->
 			<view class="xlb-menu-box card">
@@ -56,13 +61,14 @@
 			<view class="movie-container">
 				<view class="movie-box">
 					<view class="movie-list">
-						<view class="movie-item" v-for="movie in movieList" :key="movie._id"
-						@click="toDetail(movie)">
+						<view class="movie-item" v-for="movie in movieList" :key="movie._id" @click="toDetail(movie)">
 							<!-- <view class="header"></view> todo 使用瀑布流-->
 							<view class="movie-pic">
 								<image v-if="movie.pic" :src="movie.pic" :alt="movie.movieName"
 									:title="movie.movieName"></image>
-								<image v-else src="https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/load-img-404.png" alt="404" title="404"></image>
+								<image v-else
+									src="https://mp-2f404463-4a21-4e83-abed-ede3b9b92e79.cdn.bspapp.com/img/load-img-404.png"
+									alt="404" title="404"></image>
 								<view class="overy"><u-icon name="play-circle" color="#fff" size="35"></u-icon>
 								</view>
 							</view>
@@ -79,13 +85,8 @@
 					</view>
 				</view>
 			</view>
-			<u-loadmore 
-			        :status="status" 
-					loadingIcon="spinner"
-			        loading-text="正在加载中,喝杯奶茶吧..." 
-			        loadmore-text="轻轻上拉" 
-			        nomore-text="没有更多了,跟客服反馈一下吧..." 
-			    />
+			<u-loadmore :status="status" loadingIcon="spinner" loading-text="正在加载中,喝杯奶茶吧..." loadmore-text="轻轻上拉"
+				nomore-text="没有更多了,跟客服反馈一下吧..." />
 		</view>
 		<!-- tabbar -->
 		<xlb-tabbar :value="0"></xlb-tabbar>
@@ -111,11 +112,17 @@
 					pageSize: 10
 				},
 				total: 0,
-				//地址和天气信息
+				//地址信息和天气信息
 				userAddressWeatherInfo: {
-					
+					province: null, //省
+					city: null, //市
+					country: null, //国家
+					adcode: null, //城市编码 用于天气查询
+					district: null, //区
+					street: null, //街道
 				},
 				status: 'loadmore',
+				notify: "2023年09月24日上传了100部影片。",
 			};
 		},
 		methods: {
@@ -135,7 +142,7 @@
 					const res = await movie.queryList(this.queryParams);
 					const genreRes = await gener.queryList();
 					//判断是否有数据
-					if(this.total === res.affectedDocs) {
+					if (this.total === res.affectedDocs) {
 						this.status = 'nomore';
 						return;
 					}
@@ -149,63 +156,83 @@
 							...movie,
 							genreList
 						};
-					}),...this.movieList];
+					}), ...this.movieList];
 				} catch (e) {
 					console.log(e);
 				}
 			},
 			//跳转详情页
-			toDetail(movie){
+			toDetail(movie) {
 				uni.navigateTo({
-					url:`/subpages/detail/detail?id=${movie._id}`
+					url: `/subpages/detail/detail?id=${movie._id}`
 				})
 			},
 			//天气api
-			async getWeather(){
+			async getWeather() {
+				let that = this;
+				uni.getLocation({
+					geocode: true,
+					success(locationRes) {
+						that.getAddressByLongitudeAndLatitude(locationRes.longitude, locationRes.latitude);
+					}
+				})
+
+			},
+			//百度地图api根据经纬度获取地址
+			getAddressByLongitudeAndLatitude(longitude, latitude) {
 				let that = this;
 				const weatherObj = uniCloud.importObject("weather");
-				//地址信息
 				uni.request({
-					url:`https://restapi.amap.com/v3/ip?key=eb385c677cef048eaa967df3b9002cc7`,
+					url: `https://api.map.baidu.com/reverse_geocoding/v3/?ak=oRr5Y256wstYuzSmPp3fTlgMu8fYAOD6&output=json&coordtype=wgs84ll&location=${latitude},${longitude}`,
 					success(res) {
-						if (res.statusCode === 200) {
-						uni.request({
-							url: `https://restapi.amap.com/v3/weather/weatherInfo?key=eb385c677cef048eaa967df3b9002cc7&city=${res.data.adcode}&extensions=base&output=json`,
-							method: "get",
-							async success(ret) {
-								if (ret.statusCode === 200) {
-									//地址信息
-									that.userAddressWeatherInfo.province = res.data.province;
-									that.userAddressWeatherInfo.city = res.data.city;
-									that.userAddressWeatherInfo.adcode = res.data.adcode;
-									that.userAddressWeatherInfo.rectangle = res.data.rectangle;
-									//天气
-									if (ret.data.lives.length > 0) {
-										let _=ret.data.lives[0];
-										that.userAddressWeatherInfo.weather = _.weather;
-										that.userAddressWeatherInfo.temperature_float = _.temperature_float;
-										that.userAddressWeatherInfo.winddirection = _.winddirection;
-										that.userAddressWeatherInfo.windpower = _.windpower;
-										const res = await weatherObj.getWeatherByName({weatherName: _.weather, type: that.weatherToName(_.weather)})
+						if (res.statusCode === 200 && res.data.status === 0) {
+							const data = res.data.result;
+							that.userAddressWeatherInfo.province = data.addressComponent.province;
+							that.userAddressWeatherInfo.city = data.addressComponent.city;
+							that.userAddressWeatherInfo.country = data.addressComponent.country;
+							that.userAddressWeatherInfo.adcode = data.addressComponent.adcode;
+							that.userAddressWeatherInfo.district = data.addressComponent.district;
+							that.userAddressWeatherInfo.street = data.addressComponent.street;
+							that.userAddressWeatherInfo.town = data.addressComponent.town;
+							that.userAddressWeatherInfo.town_code = data.addressComponent.town_code;
+							uni.setStorageSync("addressInfo", JSON.stringify(that.userAddressWeatherInfo));
+							//天气情况
+							uni.request({
+								url: `https://api.map.baidu.com/weather/v1/?district_id=${that.userAddressWeatherInfo.adcode}&data_type=all&ak=oRr5Y256wstYuzSmPp3fTlgMu8fYAOD6`,
+								method: "get",
+								async success(ret) {
+									if (ret.statusCode === 200 && ret.data.status === 0) {
+										console.log(ret);
+										//天气
+										let _ = ret.data.result.now;
+										console.log(_);
+										that.userAddressWeatherInfo.weather = _.text;
+										that.userAddressWeatherInfo.temperature_float = _
+											.temp;
+										that.userAddressWeatherInfo.winddirection = _.wind_dir; //风的方向
+										that.userAddressWeatherInfo.windpower = _.wind_class; //风力
+										const res = await weatherObj.getWeatherByName({
+											weatherName: _.text,
+											type: that.weatherToName(_.text)
+										})
 										if (res.affectedDocs > 0) {
 											that.userAddressWeatherInfo.weatherPic = res.data[0].img;
 										}
 									}
 								}
-							}
-							
-						})
+
+							})
 						}
 					}
 				})
 			},
 			//转天气名称
-			weatherToName(weatherName){
+			weatherToName(weatherName) {
 				const hours = new Date().getHours();
 				if (hours >= 8 && hours <= 19) {
 					return '日';
 				} else {
-					return '夜'; 
+					return '夜';
 				}
 			},
 		},
@@ -222,11 +249,11 @@
 			this.loadMovie(() => {
 				uni.stopPullDownRefresh();
 			});
-			
+
 		},
 		//触底刷新
 		onReachBottom() {
-			this.queryParams.pageSize+=10;
+			this.queryParams.pageSize += 10;
 			this.loadMovie();
 		},
 	}
@@ -257,7 +284,7 @@
 
 				.search-icon {
 					margin: 0 10rpx 0 20rpx;
-					
+
 				}
 			}
 
@@ -283,12 +310,18 @@
 					font-size: 26rpx;
 					line-height: 2;
 					margin-left: 5px;
-					text{
-						&:last-of-type{
+
+					text {
+						&:last-of-type {
 							margin-left: 3rpx;
 						}
 					}
 				}
+			}
+			.weather-no{
+				font-size: 28rpx;
+				text-align: center;
+				line-height: 2;
 			}
 
 			.access {
@@ -304,6 +337,9 @@
 	/* .xlb-swiper {
 		height: 650rpx;
 	} */
+	.xlb-notify{
+		margin-bottom: 20rpx;
+	}
 	.xlb-menu-box {
 		.xlb-menus {
 			display: flex;

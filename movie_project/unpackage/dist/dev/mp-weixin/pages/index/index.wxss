@@ -70,6 +70,11 @@
 .weather-access-box .card-body .weather .city-weather text:last-of-type {
   margin-left: 3rpx;
 }
+.weather-access-box .card-body .weather-no {
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 2;
+}
 .weather-access-box .card-body .access {
   flex: 1;
   font-size: 26rpx;
@@ -80,6 +85,9 @@
 /* .xlb-swiper {
 	height: 650rpx;
 } */
+.xlb-notify {
+  margin-bottom: 20rpx;
+}
 .xlb-menu-box .xlb-menus {
   display: flex;
   align-items: center;

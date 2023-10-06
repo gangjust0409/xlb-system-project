@@ -102,25 +102,28 @@ var components
 try {
   components = {
     uSticky: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-sticky/u-sticky */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-sticky/u-sticky")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-sticky/u-sticky.vue */ 232))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-sticky/u-sticky */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-sticky/u-sticky")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-sticky/u-sticky.vue */ 234))
     },
     uniIcons: function () {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 240))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 242))
     },
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 248))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 250))
+    },
+    uNoticeBar: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-notice-bar/u-notice-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-notice-bar/u-notice-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 258))
     },
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 256))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 266))
     },
     uTag: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 265))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 275))
     },
     uLoadmore: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 273))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 283))
     },
     xlbTabbar: function () {
-      return __webpack_require__.e(/*! import() | components/xlb-tabbar/xlb-tabbar */ "components/xlb-tabbar/xlb-tabbar").then(__webpack_require__.bind(null, /*! @/components/xlb-tabbar/xlb-tabbar.vue */ 281))
+      return __webpack_require__.e(/*! import() | components/xlb-tabbar/xlb-tabbar */ "components/xlb-tabbar/xlb-tabbar").then(__webpack_require__.bind(null, /*! @/components/xlb-tabbar/xlb-tabbar.vue */ 291))
     },
   }
 } catch (e) {
@@ -204,9 +207,23 @@ var _default = {
         pageSize: 10
       },
       total: 0,
-      //地址和天气信息
-      userAddressWeatherInfo: {},
-      status: 'loadmore'
+      //地址信息和天气信息
+      userAddressWeatherInfo: {
+        province: null,
+        //省
+        city: null,
+        //市
+        country: null,
+        //国家
+        adcode: null,
+        //城市编码 用于天气查询
+        district: null,
+        //区
+        street: null //街道
+      },
+
+      status: 'loadmore',
+      notify: "2023年09月24日上传了100部影片。"
     };
   },
   methods: {
@@ -298,76 +315,90 @@ var _default = {
     //天气api
     getWeather: function getWeather() {
       var _this3 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
-        var that, weatherObj;
-        return _regenerator.default.wrap(function _callee4$(_context4) {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var that;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 that = _this3;
-                weatherObj = uniCloud.importObject("weather"); //地址信息
-                uni.request({
-                  url: "https://restapi.amap.com/v3/ip?key=eb385c677cef048eaa967df3b9002cc7",
-                  success: function success(res) {
-                    if (res.statusCode === 200) {
-                      uni.request({
-                        url: "https://restapi.amap.com/v3/weather/weatherInfo?key=eb385c677cef048eaa967df3b9002cc7&city=".concat(res.data.adcode, "&extensions=base&output=json"),
-                        method: "get",
-                        success: function success(ret) {
-                          return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
-                            var _, _res;
-                            return _regenerator.default.wrap(function _callee3$(_context3) {
-                              while (1) {
-                                switch (_context3.prev = _context3.next) {
-                                  case 0:
-                                    if (!(ret.statusCode === 200)) {
-                                      _context3.next = 15;
-                                      break;
-                                    }
-                                    //地址信息
-                                    that.userAddressWeatherInfo.province = res.data.province;
-                                    that.userAddressWeatherInfo.city = res.data.city;
-                                    that.userAddressWeatherInfo.adcode = res.data.adcode;
-                                    that.userAddressWeatherInfo.rectangle = res.data.rectangle;
-                                    //天气
-                                    if (!(ret.data.lives.length > 0)) {
-                                      _context3.next = 15;
-                                      break;
-                                    }
-                                    _ = ret.data.lives[0];
-                                    that.userAddressWeatherInfo.weather = _.weather;
-                                    that.userAddressWeatherInfo.temperature_float = _.temperature_float;
-                                    that.userAddressWeatherInfo.winddirection = _.winddirection;
-                                    that.userAddressWeatherInfo.windpower = _.windpower;
-                                    _context3.next = 13;
-                                    return weatherObj.getWeatherByName({
-                                      weatherName: _.weather,
-                                      type: that.weatherToName(_.weather)
-                                    });
-                                  case 13:
-                                    _res = _context3.sent;
-                                    if (_res.affectedDocs > 0) {
-                                      that.userAddressWeatherInfo.weatherPic = _res.data[0].img;
-                                    }
-                                  case 15:
-                                  case "end":
-                                    return _context3.stop();
-                                }
-                              }
-                            }, _callee3);
-                          }))();
-                        }
-                      });
-                    }
+                uni.getLocation({
+                  geocode: true,
+                  success: function success(locationRes) {
+                    that.getAddressByLongitudeAndLatitude(locationRes.longitude, locationRes.latitude);
                   }
                 });
-              case 3:
+              case 2:
               case "end":
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4);
+        }, _callee3);
       }))();
+    },
+    //百度地图api根据经纬度获取地址
+    getAddressByLongitudeAndLatitude: function getAddressByLongitudeAndLatitude(longitude, latitude) {
+      var that = this;
+      var weatherObj = uniCloud.importObject("weather");
+      uni.request({
+        url: "https://api.map.baidu.com/reverse_geocoding/v3/?ak=oRr5Y256wstYuzSmPp3fTlgMu8fYAOD6&output=json&coordtype=wgs84ll&location=".concat(latitude, ",").concat(longitude),
+        success: function success(res) {
+          if (res.statusCode === 200 && res.data.status === 0) {
+            var data = res.data.result;
+            that.userAddressWeatherInfo.province = data.addressComponent.province;
+            that.userAddressWeatherInfo.city = data.addressComponent.city;
+            that.userAddressWeatherInfo.country = data.addressComponent.country;
+            that.userAddressWeatherInfo.adcode = data.addressComponent.adcode;
+            that.userAddressWeatherInfo.district = data.addressComponent.district;
+            that.userAddressWeatherInfo.street = data.addressComponent.street;
+            that.userAddressWeatherInfo.town = data.addressComponent.town;
+            that.userAddressWeatherInfo.town_code = data.addressComponent.town_code;
+            uni.setStorageSync("addressInfo", JSON.stringify(that.userAddressWeatherInfo));
+            //天气情况
+            uni.request({
+              url: "https://api.map.baidu.com/weather/v1/?district_id=".concat(that.userAddressWeatherInfo.adcode, "&data_type=all&ak=oRr5Y256wstYuzSmPp3fTlgMu8fYAOD6"),
+              method: "get",
+              success: function success(ret) {
+                return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
+                  var _, _res;
+                  return _regenerator.default.wrap(function _callee4$(_context4) {
+                    while (1) {
+                      switch (_context4.prev = _context4.next) {
+                        case 0:
+                          if (!(ret.statusCode === 200 && ret.data.status === 0)) {
+                            _context4.next = 12;
+                            break;
+                          }
+                          console.log(ret);
+                          //天气
+                          _ = ret.data.result.now;
+                          console.log(_);
+                          that.userAddressWeatherInfo.weather = _.text;
+                          that.userAddressWeatherInfo.temperature_float = _.temp;
+                          that.userAddressWeatherInfo.winddirection = _.wind_dir; //风的方向
+                          that.userAddressWeatherInfo.windpower = _.wind_class; //风力
+                          _context4.next = 10;
+                          return weatherObj.getWeatherByName({
+                            weatherName: _.text,
+                            type: that.weatherToName(_.text)
+                          });
+                        case 10:
+                          _res = _context4.sent;
+                          if (_res.affectedDocs > 0) {
+                            that.userAddressWeatherInfo.weatherPic = _res.data[0].img;
+                          }
+                        case 12:
+                        case "end":
+                          return _context4.stop();
+                      }
+                    }
+                  }, _callee4);
+                }))();
+              }
+            });
+          }
+        }
+      });
     },
     //转天气名称
     weatherToName: function weatherToName(weatherName) {
