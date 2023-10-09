@@ -11,9 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="xlb-common" target="19" />
-      <module name="xlb-study-module" target="19" />
-      <module name="xlb-system" target="1.5" />
+      <module name="xlb-common" target="1.8" />
+      <module name="xlb-study-module" target="1.8" />
+      <module name="xlb-system" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

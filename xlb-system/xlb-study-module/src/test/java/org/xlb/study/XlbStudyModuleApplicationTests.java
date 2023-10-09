@@ -1,13 +1,13 @@
 package org.xlb.study;
 
-import jakarta.annotation.Resource;
+import io.camunda.zeebe.client.ZeebeClient;
+import io.camunda.zeebe.client.api.worker.JobWorkerBuilderStep1;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.xlb.common.utils.LogInfo;
-import org.xlb.study.algorithm.SortAlgorithm;
 import org.xlb.study.config.LinearityTable;
 import org.xlb.study.config.LinearityTableByLinkedList;
 import org.xlb.study.thead.DaemonThead;
@@ -17,18 +17,9 @@ import org.xlb.study.thead.synchronize.SocietyHeiNiu;
 import org.xlb.study.thead.synchronize.SocietyHuangNiu;
 import org.xlb.study.thead.waitAndNotify.TaskQueue;
 
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.Authenticator;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadFactory;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -47,7 +38,7 @@ class XlbStudyModuleApplicationTests {
 	//排序算法
 	@Test
 	void testSortAlgorithm(){
-		List<Integer> nums = List.of(1, 10, 7,65,2,9, 52);
+		/*List<Integer> nums = List.of(1, 10, 7,65,2,9, 52);
 		//排序后的值
 		System.out.println("排序前：");
 		for (int i = 0; i < nums.size(); i++) {
@@ -57,7 +48,7 @@ class XlbStudyModuleApplicationTests {
 		System.out.println("\n排序后：");
 		for (int i = 0; i < numbers.size(); i++) {
 			System.out.printf("%s\t", numbers.get(i));
-		}
+		}*/
 	}
 
 
@@ -81,11 +72,22 @@ class XlbStudyModuleApplicationTests {
 
 	}
 
+	@Autowired
+	private ZeebeClient zeebeClient;
+
+	@Test
+	void testCamunda(){
+		JobWorkerBuilderStep1 jobWorkerBuilderStep1 = zeebeClient.newWorker();
+		JobWorkerBuilderStep1.JobWorkerBuilderStep2 payment = jobWorkerBuilderStep1.jobType("payment");
+		System.err.println(payment);
+
+	}
+
 	//虚拟线程
 	@Test
 	void testVirtualThead(){
 
-		Queue<String> tasks = new LinkedList<>();
+		/*Queue<String> tasks = new LinkedList<>();
 
 		//方式一：直接创建运行
 		Thread.startVirtualThread(() -> {
@@ -103,7 +105,7 @@ class XlbStudyModuleApplicationTests {
 		ThreadFactory threadFactory = Thread.ofVirtual().factory();
 		threadFactory.newThread(() -> {
 			System.out.println(Thread.currentThread().getName());
-		}).start();
+		}).start();*/
 
 	}
 
@@ -300,15 +302,13 @@ class XlbStudyModuleApplicationTests {
 		BigDecimal bigDecimal = java8Test.tstFunc(128.23, BigDecimal::new, price -> Double.valueOf(price * 23.56));
 		java8Test.accept("多个函数连接", str -> System.out.printf("%s\t%s", str, bigDecimal));
 
-		LogInfo.sho();
-
 	}
 
 	//java10
 	@Test
 	void testJava10(){
-		var str  = "hhh";
-		System.err.println(str); //有利于 jvm的G1 停顿时间
+		/*var str  = "hhh";
+		System.err.println(str); //有利于 jvm的G1 停顿时间*/
 	}
 
 	@Test
@@ -325,7 +325,7 @@ class XlbStudyModuleApplicationTests {
 		/*User user = null;
 		User newUser = Optional.of(user).orElse(new User());
 		System.err.println(newUser);*/
-		HttpClient httpClient = HttpClient.newHttpClient();
+		/*HttpClient httpClient = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/test/1005")).build();
 		HttpResponse.BodyHandler<String> responseHander = HttpResponse.BodyHandlers.ofString();
 		HttpResponse<String> response = null;
@@ -336,7 +336,7 @@ class XlbStudyModuleApplicationTests {
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
-		System.out.println(response.body());
+		System.out.println(response.body());*/
 
 
 	}
@@ -350,18 +350,18 @@ class XlbStudyModuleApplicationTests {
 	@Test
 	void testJava12(){
 		String s = "str";
-		var number = switch (s) {
+		/*var number = switch (s) {
 			case "str" -> 1;
 			case "num" -> 2;
 			default -> 3;
 		};
-		System.err.println(number);
+		System.err.println(number);*/
 	}
 
 	@Test
 	void testJava13() {
 		String str = "ss";
-		Class clazz = switch (str) {
+		/*Class clazz = switch (str) {
 			case "ss" -> {
 				System.out.println("ss");
 				yield String.class;
@@ -373,19 +373,19 @@ class XlbStudyModuleApplicationTests {
 				yield Object.class;
 			}
 		};
-		System.out.println(clazz);
+		System.out.println(clazz);*/
 	}
 
 	@Test
 	void testJava14(){
 		Object user = new User();
 		//instanceof 如果是一个类型，那么直接赋值给 user1
-		if (user instanceof User user1) {
+		/*if (user instanceof User user1) {
 			System.err.println(user1);
 		}
 		Bean bean = new Bean("张三", 18);
 		System.err.println(bean.age);
-		System.err.println(bean);
+		System.err.println(bean);*/
 
 	}
 
@@ -405,8 +405,8 @@ class XlbStudyModuleApplicationTests {
 */
 
 	// record 类似 lombok
-	record Bean(String name, Integer age){
+	/*record Bean(String name, Integer age){
 
-	}
+	}*/
 
 }

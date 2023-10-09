@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.logging.log4j:log4j-api:2.20.0">
     <CLASSES>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

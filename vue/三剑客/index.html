@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var btnType = $(this).attr("btnType");
+        //本地监管来文
+        if (btnType == 'add_Regulation') {
+            layer.open({
+                type: 2,//iframe窗
+                title: '[(#{page_common_add})]',
+                shade: 0.6, //遮罩透明度
+                area: ['85%', '100%'],
+                maxmin: true, //允许全屏最小化
+                anim: 1, //0-6的动画形式，-1不开启
+                content: '/littleof/taoadmin/standingbook/mngop/toPage/OfficialDocSys/OfficialDoc/addPage_Regulation',
+                end: function () {//弹框关闭时刷新当前表格
+                    $('#dataTable').bootstrapTable('refresh');//重新获取结果
+                }
+            });
+        } else if (btnType == 'add_ExternalCompany') {
+            //新增外部公司来文
+            layer.open({
+                type: 2,//iframe窗
+                title: '[(#{page_common_add})]',
+                shade: 0.6, //遮罩透明度
+                area: ['85%', '100%'],
+                maxmin: true, //允许全屏最小化
+                anim: 1, //0-6的动画形式，-1不开启
+                content: '/littleof/taoadmin/standingbook/mngop/toPage/OfficialDocSys/OfficialDoc/externalCompanyAddPage',
+                end: function () {//弹框关闭时刷新当前表格
+                    $('#dataTable').bootstrapTable('refresh');//重新获取结果
+                }
+            });
+        } else if (btnType == 'add_Announcement') {
+            //新增行内公告
+            layer.open({
+                type: 2,//iframe窗
+                title: '[(#{page_common_add})]',
+                shade: 0.6, //遮罩透明度
+                area: ['85%', '100%'],
+                maxmin: true, //允许全屏最小化
+                anim: 1, //0-6的动画形式，-1不开启
+                content: '/littleof/taoadmin/standingbook/mngop/toPage/OfficialDocSys/OfficialDoc/announcementAddPage',
+                end: function () {//弹框关闭时刷新当前表格
+                    $('#dataTable').bootstrapTable('refresh');//重新获取结果
+                }
+            });
+        } else if (btnType == 'add_BankInternalDoc') {
+            //新增行内发文
+            layer.open({
+                type: 2,//iframe窗
+                title: '[(#{page_common_add})]',
+                shade: 0.6, //遮罩透明度
+                area: ['85%', '100%'],
+                maxmin: true, //允许全屏最小化
+                anim: 1, //0-6的动画形式，-1不开启
+                content: '/littleof/taoadmin/standingbook/mngop/toPage/OfficialDocSys/OfficialDoc/bankInternalDocAddPage',
+                end: function () {//弹框关闭时刷新当前表格
+                    $('#dataTable').bootstrapTable('refresh');//重新获取结果
+                }
+            });
+        } else if (btnType == 'add_BankCrossDeptDoc') {
+            //新增部门发文
+            layer.open({
+                type: 2,//iframe窗
+                title: '[(#{page_common_add})]',
+                shade: 0.6, //遮罩透明度
+                area: ['85%', '100%'],
+                maxmin: true, //允许全屏最小化
+                anim: 1, //0-6的动画形式，-1不开启
+                content: '/littleof/taoadmin/standingbook/mngop/toPage/OfficialDocSys/OfficialDoc/bankCrossDeptDocAddPage',
+                end: function () {//弹框关闭时刷新当前表格
+                    $('#dataTable').bootstrapTable('refresh');//重新获取结果
+                }
+            });
+        } else {
+            layerAlertError("暂不支持添加的类型：" + addType);
+            return false;
+        }
+
+
+    </script>
+</body>
+
+</html>

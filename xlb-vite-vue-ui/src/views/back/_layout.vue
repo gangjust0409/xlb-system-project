@@ -8,39 +8,7 @@
                 </h2>
                 <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
                     @close="handleClose">
-                    <!-- 单个 -->
-                    <el-menu-item index="2">
-                        <el-icon><i-ep-document /></el-icon>
-                        <template #title>主页</template>
-                    </el-menu-item>
-                    <!-- 多个 -->
-                    <el-sub-menu index="1">
-                        <template #title>
-                            <el-icon>
-                                <i-ep-setting />
-                            </el-icon>
-                            <span>系统管理</span>
-                        </template>
-                        <el-menu-item index="1-1">item one</el-menu-item>
-                        <el-menu-item index="1-2">item two</el-menu-item>
-                        <el-menu-item index="1-3">item three</el-menu-item>
-                        <el-menu-item index="1-4-1">item one</el-menu-item>
-                        <el-menu-item index="1-4-2">item one</el-menu-item>
-                    </el-sub-menu>
-                    <el-sub-menu index="3">
-                        <template #title>
-                            <el-icon>
-                                <i-ep-documentChecked />
-                            </el-icon>
-                            <span>学习管理</span>
-                        </template>
-                        <el-menu-item index="1-1">logicFlow</el-menu-item>
-                    </el-sub-menu>
-                    <!-- 单个 -->
-                    <el-menu-item index="2">
-                        <el-icon><i-ep-document /></el-icon>
-                        <template #title>Navigator Two</template>
-                    </el-menu-item>
+                    <sub-menu :list="menuStore.menus"></sub-menu>
                 </el-menu>
             </el-aside>
             <el-container>
@@ -119,12 +87,20 @@
 </template>
 
 <script setup lang="ts">
+import SubMenu from '@/components/SubMenu.vue'
+import {userMenuStore} from '@/pinia/menu'
+
+const menuStore = userMenuStore();
 //是否显示logo或文字
 const isLogo = ref<Boolean>(false);
 const isTitleFlag = ref<Number>(1);
 const isCollapse = ref<Boolean>(false)
 //菜单宽度
 const menuWidth = ref<string>('200px');
+console.log(menuStore);
+
+
+
 
 //显示隐藏 ，根据是否设置logo
 function changeCollapse(flag: boolean) {

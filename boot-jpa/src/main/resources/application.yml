@@ -1,0 +1,22 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: boot-jpa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.28.3.215:3306/bootjpa?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    # 打印 SQL
+    show-sql: true
+    hibernate:
+      # 删除操作不执行真正的删除，而是执行一个修改操作（逻辑删除）
+      ddl-auto: update
+#      naming:
+        # java实体类和数据库字段映射策略
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        # 禁止将Java实体类中有驼峰命名地字段在数据库中转为带下划线的
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

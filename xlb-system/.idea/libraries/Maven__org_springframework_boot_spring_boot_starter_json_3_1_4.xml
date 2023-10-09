@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-starter-json:3.1.4">
     <CLASSES>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://D:/rjs/devlopments/apache-maven-3.9.4-bin/repostorys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../ruans/apache-maven-3.9.3-bin/apache-maven-3.9.3/repostirys/org/springframework/boot/spring-boot-starter-json/3.1.4/spring-boot-starter-json-3.1.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -10,7 +10,7 @@ public class TestController {
     @GetMapping("/test/{id}")
     public String test(@PathVariable String id){
 
-        return """
+       /* return """
                 {
                     "code": 200,
                     "data": {
@@ -18,15 +18,15 @@ public class TestController {
                     },
                     "message": "查询成功！"
                 }
-                """;
+                """;*/
 
-    /*    return "{" +
+        return "{" +
                 "\"code\":200," +
                 "\"data\": {" +
                 "\"id\":"+id +
                 "}," +
                 "\"message\": \"查询成功\"" +
-                "}";*/
+                "}";
     }
 
 }
