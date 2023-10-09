@@ -1,3 +1,10 @@
 server:
   port: 8005
-
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+      first-name: Demo
+    filter:
+      create: All task

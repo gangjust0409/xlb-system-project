@@ -1,0 +1,22 @@
+server:
+  port: 92
+
+
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+      first-name: Admin
+    filter:
+      create: All task
+    database:
+      type: mysql
+    deployment-resource-pattern: classpath*:**/*.bpmn
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/camunda_db?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource

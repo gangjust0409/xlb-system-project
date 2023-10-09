@@ -1,6 +1,2 @@
 server:
   port: 8005
-zeebe:
-  client:
-    broker:
-      gateway-address:

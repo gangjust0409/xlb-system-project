@@ -7,18 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="xlb-common" />
+        <module name="xlb-camunda" />
         <module name="xlb-study-module" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="xlb-common" target="1.8" />
-      <module name="xlb-study-module" target="1.8" />
+      <module name="xlb-camunda" target="17" />
+      <module name="xlb-common" target="17" />
+      <module name="xlb-study-module" target="17" />
       <module name="xlb-system" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="--enable-preview" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="xlb-camunda" options="-parameters" />
       <module name="xlb-common" options="-parameters" />
       <module name="xlb-study-module" options="-parameters" />
       <module name="xlb-system" options="" />

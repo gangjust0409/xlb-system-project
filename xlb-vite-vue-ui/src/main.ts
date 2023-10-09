@@ -1,6 +1,7 @@
 import { createSSRApp } from 'vue'
 import App from '@/App.vue'
 import "@logicflow/core/dist/style/index.css";
+import '@logicflow/extension/lib/style/index.css';
 import {createPinia} from 'pinia'
 
 

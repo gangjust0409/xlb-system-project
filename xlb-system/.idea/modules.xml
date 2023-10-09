@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/xlb-camunda/xlb-camunda.iml" filepath="$PROJECT_DIR$/xlb-camunda/xlb-camunda.iml" />
       <module fileurl="file://$PROJECT_DIR$/xlb-common/xlb-common.iml" filepath="$PROJECT_DIR$/xlb-common/xlb-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/xlb-study-module/xlb-study-module.iml" filepath="$PROJECT_DIR$/xlb-study-module/xlb-study-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/xlb-system.iml" filepath="$PROJECT_DIR$/xlb-system.iml" />
