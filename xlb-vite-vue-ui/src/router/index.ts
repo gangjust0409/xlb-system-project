@@ -17,7 +17,7 @@ const rs = Object.keys(pages).map(page => {
 const routes:any[] = [
     {
         path: '',
-        redirect: '/logicFlow'
+        redirect: '/bigData'
     },
     {
         path: '/',
@@ -32,6 +32,10 @@ const routes:any[] = [
                 component: () => import('@/views/back/logicFlow/index.vue')
             },
         ]
+    },
+    {
+        path: '/bigData',
+        component: () => import('@/views/back/bigData/homePage.vue'),
     }
 ];
 

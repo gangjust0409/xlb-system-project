@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CommonChat: typeof import('./src/components/CommonChat.vue')['default']
+    CommonChatPosition: typeof import('./src/components/CommonChatPosition.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -28,7 +30,6 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     IEpBell: typeof import('~icons/ep/bell')['default']
     IEpDocument: typeof import('~icons/ep/document')['default']
-    IEpDocumentChecked: typeof import('~icons/ep/document-checked')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpSetting: typeof import('~icons/ep/setting')['default']
